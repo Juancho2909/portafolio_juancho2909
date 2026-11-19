@@ -8,6 +8,7 @@ const projects = [
   {
     id: "pereira-time-machine",
     name: "Pereira Time Machine",
+    demoUrl: "proyectos/pereira-time-machine/index.html",
     description: "Explora el código fuente de Pereira Time Machine en GitHub.",
     technologies: [],
     color: "",
@@ -18,6 +19,7 @@ const projects = [
   {
     id: "orbita",
     name: "Orbita",
+    demoUrl: "proyectos/orbita/index.html",
     description: "Explora el código fuente de Orbita en GitHub.",
     technologies: [],
     color: "indigo",
@@ -28,6 +30,8 @@ const projects = [
   {
     id: "rey-barracuda",
     name: "Rey de Barracuda",
+    demoUrl: null,
+    demoUnavailableReason: "Juego de escritorio en Python y Pygame. La versión web aún no está disponible.",
     description: "Explora el código fuente de Rey de Barracuda en GitHub.",
     technologies: [],
     color: "sand",
@@ -116,7 +120,23 @@ function renderProjects() {
       selectedButton?.focus({ preventScroll: true });
       detail.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "nearest" });
     });
-    body.append(top, element("p", "", project.description), tags, button);
+    const demo = element(project.demoUrl ? "a" : "button", "button primary project-demo", project.demoUrl ? "Abrir proyecto ↗" : "Demo web no disponible");
+    if (project.demoUrl) {
+      demo.href = project.demoUrl;
+      demo.target = "_blank";
+      demo.rel = "noopener noreferrer";
+      demo.setAttribute("aria-label", `Abrir ${project.name} en una pestaña nueva`);
+    } else {
+      demo.type = "button";
+      demo.disabled = true;
+      demo.setAttribute("aria-describedby", `${project.id}-demo-note`);
+    }
+    body.append(top, element("p", "", project.description), tags, demo, button);
+    if (!project.demoUrl) {
+      const note = element("p", "demo-note", project.demoUnavailableReason);
+      note.id = `${project.id}-demo-note`;
+      body.append(note);
+    }
     card.append(preview, body);
     grid.append(card);
   });

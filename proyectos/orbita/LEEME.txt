@@ -1,0 +1,34 @@
+ÓRBITA — Carrera matemática espacial
+
+CÓMO EJECUTAR
+1. Extrae todo el ZIP en una carpeta.
+2. Abre index.html con Chrome, Edge o Firefox.
+No requiere instalación, Node.js ni una base de datos.
+
+ARCHIVOS
+- index.html: estructura, tablero e instrucciones del juego.
+- style.css: diseño adaptable, planetas y animaciones.
+- game.js: catálogo de 16 sucesiones, selección del PC y lógica de carrera.
+
+CÓMO JUGAR
+Selecciona una misión. Elige el motor del PC o sortéalo; su fórmula se muestra antes del vuelo.
+Elige tu motor entre los 16 disponibles, usando el filtro por familia si lo deseas.
+Pulsa Iniciar carrera. Puedes pausar y cambiar la velocidad entre 1×, 2× y 4×.
+Consulta el resultado y la bitácora para comparar los impulsos y la distancia acumulada.
+
+REGLAS MATEMÁTICAS
+n comienza en 1. Cada término indica los kilómetros de impulso en ese instante.
+La distancia recorrida se acumula sumando los impulsos.
+La escala de misión se aplica por igual a ambos cohetes.
+En el último instante se compara el cruce de la meta con avance uniforme dentro de ese instante.
+Ambos pueden usar el mismo motor; en ese caso empatan.
+Las distancias y los cuerpos celestes son ilustrativos, sin escala astronómica.
+
+PERSONALIZAR
+Abre la carpeta en Visual Studio Code.
+Edita catalog en game.js para modificar o añadir sucesiones.
+Edita missions en game.js para cambiar las metas y las escalas de los viajes.
+
+CONEXIÓN
+La lógica, los dibujos y las animaciones funcionan sin conexión.
+style.css solicita fuentes de Google Fonts; si no hay Internet se usan las fuentes alternativas del sistema.
