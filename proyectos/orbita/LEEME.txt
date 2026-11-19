@@ -1,34 +1,46 @@
-ÓRBITA — Carrera matemática espacial
+ÓRBITA — Código fuente actualizado con sonidos
 
-CÓMO EJECUTAR
-1. Extrae todo el ZIP en una carpeta.
-2. Abre index.html con Chrome, Edge o Firefox.
-No requiere instalación, Node.js ni una base de datos.
+INICIO RÁPIDO
+1. Extrae todo el contenido del ZIP.
+2. Abre Orbita/index.html en Chrome, Edge o Firefox.
+3. Interactúa con el juego para habilitar el audio del navegador.
+No requiere instalar paquetes, Node.js ni una base de datos.
 
 ARCHIVOS
-- index.html: estructura, tablero e instrucciones del juego.
-- style.css: diseño adaptable, planetas y animaciones.
-- game.js: catálogo de 16 sucesiones, selección del PC y lógica de carrera.
+index.html: estructura, tablero e instrucciones.
+style.css: diseño adaptable, planetas y animaciones.
+game.js: 16 motores matemáticos, tres misiones y lógica de carrera.
+audio.js: sonidos sintetizados con Web Audio, sin archivos de audio externos.
+tests/audio.cjs: pruebas de la lógica de audio (opcional; requiere Node.js).
 
 CÓMO JUGAR
-Selecciona una misión. Elige el motor del PC o sortéalo; su fórmula se muestra antes del vuelo.
-Elige tu motor entre los 16 disponibles, usando el filtro por familia si lo deseas.
-Pulsa Iniciar carrera. Puedes pausar y cambiar la velocidad entre 1×, 2× y 4×.
-Consulta el resultado y la bitácora para comparar los impulsos y la distancia acumulada.
+Elige una misión y observa el motor del PC. Puedes elegirlo o sortear otro.
+Selecciona tu motor entre las 16 sucesiones disponibles y pulsa Iniciar carrera.
+Puedes pausar, continuar y cambiar la velocidad de simulación.
+Revisa el resultado y la bitácora para comparar las distancias acumuladas.
 
-REGLAS MATEMÁTICAS
-n comienza en 1. Cada término indica los kilómetros de impulso en ese instante.
-La distancia recorrida se acumula sumando los impulsos.
-La escala de misión se aplica por igual a ambos cohetes.
-En el último instante se compara el cruce de la meta con avance uniforme dentro de ese instante.
-Ambos pueden usar el mismo motor; en ese caso empatan.
-Las distancias y los cuerpos celestes son ilustrativos, sin escala astronómica.
+SONIDOS
+Incluye selección de motor, despegue, motor con intensidad variable, impulsos,
+pausa, reanudación, victoria, derrota, empate y ambiente espacial.
+Los controles sobre el tablero permiten silenciar todo, desactivar solo el
+ambiente y ajustar el volumen. Las preferencias se guardan en este navegador
+cuando el almacenamiento local está disponible.
+El audio comienza después de una interacción y se silencia al cambiar de pestaña.
+Si no se oye, comprueba el volumen, el botón Sonido y que la pestaña no esté silenciada.
 
-PERSONALIZAR
-Abre la carpeta en Visual Studio Code.
-Edita catalog en game.js para modificar o añadir sucesiones.
-Edita missions en game.js para cambiar las metas y las escalas de los viajes.
+REGLAS
+n comienza en 1. Cada término es el impulso en kilómetros de ese instante.
+La distancia total se obtiene sumando los impulsos.
+La escala de misión multiplica por igual los impulsos de ambos cohetes.
+En el instante final, el primer cruce se calcula con avance uniforme.
+Las distancias y los cuerpos celestes son ilustrativos y no están a escala.
+
+DESARROLLO
+Abre la carpeta Orbita en Visual Studio Code.
+Edita catalog y missions en game.js para cambiar motores y viajes.
+Edita audio.js para ajustar los sonidos.
+Para ejecutar las pruebas desde la carpeta Orbita: node tests/audio.cjs
 
 CONEXIÓN
-La lógica, los dibujos y las animaciones funcionan sin conexión.
-style.css solicita fuentes de Google Fonts; si no hay Internet se usan las fuentes alternativas del sistema.
+La lógica, los gráficos y los sonidos funcionan sin conexión.
+Google Fonts se usa solo para tipografías; sin Internet se usan fuentes del sistema.
